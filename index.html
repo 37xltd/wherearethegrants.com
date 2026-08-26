@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153b35">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="GrantAtlas is an evidence-led guide to public funding calls, awards and funders.">
+  <meta property="og:title" content="GrantAtlas — Find funding with the evidence in view">
+  <meta property="og:description" content="Search public funding calls and awards with source, date, coverage and confidence shown clearly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wherearethegrants.com/">
+  <link rel="canonical" href="https://wherearethegrants.com/">
+  <!-- Shared 37x GA4 web-stream. Search Console verification remains account-specific. -->
+  <script>
+    window.GRANTATLAS_GA_ID = 'G-X8V7G1S3EH';
+    if (window.GRANTATLAS_GA_ID) {
+      const ga = document.createElement('script'); ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GRANTATLAS_GA_ID;
+      document.head.appendChild(ga);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ dataLayer.push(arguments); };
+      gtag('js', new Date()); gtag('config', window.GRANTATLAS_GA_ID);
+    }
+  </script>
+  <title>GrantAtlas — Public funding intelligence</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d8f06f'/%3E%3Cpath d='M18 44V20h9v15l10-15h10L36 33l12 11H36l-9-9v9z' fill='%23153b35'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#top" aria-label="GrantAtlas home"><span class="brand-mark">G</span>Grant<span class="brand-accent">Atlas</span></a><nav aria-label="Main navigation"><a href="#explore">Explore</a><a href="#method">Methodology</a><a href="#about">About</a><button class="nav-button" data-action="save">Save a search</button></nav></header>
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy"><p class="kicker">PUBLIC FUNDING INTELLIGENCE <span class="live-dot"></span> UPDATED WEEKLY</p><h1>Find the money.<br><em>See the proof.</em></h1><p class="lede">GrantAtlas brings funding calls, awards and funder activity into one clear, searchable view — with the source, date and confidence beside every answer.</p></div>
+    <form class="search-box" id="searchForm"><label for="search">What funding are you looking for?</label><div class="search-line"><span aria-hidden="true">⌕</span><input id="search" value="community energy" autocomplete="off"><button type="submit">Search Atlas <span>→</span></button></div><div class="suggestions"><button type="button" data-query="youth arts">youth arts</button><button type="button" data-query="local climate">local climate</button><button type="button" data-query="small business">small business</button></div></form>
+    <div class="hero-meta"><span><b>12,840</b> public records</span><span><b>384</b> active calls</span><span><b>97%</b> source-linked</span></div>
+  </section>
+  <section class="atlas-layout" id="explore"><aside class="filters"><div class="section-label">Refine the atlas</div><label for="topic">Topic</label><select id="topic"><option>All topics</option><option>Community & place</option><option>Environment</option><option>Arts & culture</option><option>Business & innovation</option></select><label for="geo">Geography</label><select id="geo"><option>All geographies</option><option>United Kingdom</option><option>Scotland</option><option>Wales</option><option>England</option></select><label for="status">Record type</label><select id="status"><option>Calls & awards</option><option>Open calls</option><option>Past awards</option><option>Funders</option></select><div class="filter-note"><span class="info">i</span> Filters change the results on this page. They do not create separate indexable pages.</div></aside>
+    <div class="results"><div class="results-head"><div><div class="section-label">Search results</div><h2 id="resultTitle">Funding connected to community energy</h2></div><div class="result-count" id="resultCount">18 matches <button aria-label="Sort results">↕</button></div></div>
+      <article class="result-card featured"><div class="card-top"><span class="status open">OPEN CALL</span><span class="confidence">● High confidence</span></div><h3>Community Energy Fund — Round 4</h3><p class="card-summary">Support for locally owned renewable energy projects, feasibility work and community benefit plans.</p><div class="card-facts"><span><b>Up to £250,000</b><small>maximum award</small></span><span><b>18 Sep 2026</b><small>deadline</small></span><span><b>UK-wide</b><small>eligible area</small></span></div><div class="card-footer"><span>Source: <strong>Department for Energy Security</strong> · checked 25 Aug 2026</span><button class="link-button" data-action="details">View evidence →</button></div></article>
+      <article class="result-card"><div class="card-top"><span class="status open">OPEN CALL</span><span class="confidence">● High confidence</span></div><h3>Net Zero Neighbourhoods Challenge</h3><p class="card-summary">Matched funding for councils and community partnerships testing practical routes to local decarbonisation.</p><div class="card-facts"><span><b>£5m pot</b><small>total fund</small></span><span><b>02 Oct 2026</b><small>deadline</small></span><span><b>England</b><small>eligible area</small></span></div><div class="card-footer"><span>Source: <strong>UKRI</strong> · checked 25 Aug 2026</span><button class="link-button" data-action="details">View evidence →</button></div></article>
+      <article class="result-card"><div class="card-top"><span class="status awarded">AWARD RECORD</span><span class="confidence medium">● Medium confidence</span></div><h3>Solar Streets Community Grant</h3><p class="card-summary">Awards made to resident-led groups for shared solar installations and energy advice.</p><div class="card-facts"><span><b>£42,600</b><small>award amount</small></span><span><b>Jun 2026</b><small>award date</small></span><span><b>North East</b><small>recipient area</small></span></div><div class="card-footer"><span>Source: <strong>North East Combined Authority</strong> · checked 25 Aug 2026</span><button class="link-button" data-action="details">View evidence →</button></div></article>
+      <button class="load-more" id="loadMore">Load 15 more matches <span>↓</span></button>
+    </div></section>
+  <section class="answer-band"><div><p class="kicker">THE ATLAS ANSWER</p><h2>Funding is a trail, not a list.</h2><p>Follow a call from eligibility to deadline, or trace an award from funder to recipient. GrantAtlas keeps those relationships visible so you can make a better-informed next move.</p></div><div class="trail"><div><span>01</span><b>Call</b><small>eligibility · deadline</small></div><i>→</i><div><span>02</span><b>Award</b><small>recipient · amount</small></div><i>→</i><div><span>03</span><b>Outcome</b><small>project · evidence</small></div></div></section>
+  <section class="method" id="method"><div class="section-label">Built for trust</div><h2>Every answer carries its context.</h2><div class="method-grid"><div><span class="method-icon">↗</span><h3>Source-linked</h3><p>Go back to the primary publisher for the original call, award notice or dataset.</p></div><div><span class="method-icon">◷</span><h3>Dated</h3><p>See when the record was published, when it applies and when we last checked it.</p></div><div><span class="method-icon">◉</span><h3>Confidence-aware</h3><p>Identity, completeness and freshness are graded separately — never hidden in one score.</p></div></div></section>
+  <section class="share-strip"><div><b>Found something useful?</b><span>Share a clean, citeable view of this result set.</span></div><button class="share-button" data-action="share">Share this search ↗</button><button class="copy-button" data-action="copy">Copy link</button></section>
+  <section class="about" id="about"><div><div class="section-label">About GrantAtlas</div><h2>A calm layer over a noisy funding landscape.</h2></div><div><p>GrantAtlas is an evidence product for people who need to find, compare and understand public funding. It surfaces what the source says, when it says it and where the gaps remain.</p><a class="text-link" href="#method">Read the methodology →</a></div></section>
+</main>
+<footer><a class="brand" href="#top"><span class="brand-mark">G</span>Grant<span class="brand-accent">Atlas</span></a><div><a href="#method">Sources & method</a><a href="#about">About</a><a href="mailto:hello@grantatlas.example">Contact</a></div><small>Evidence-led funding intelligence · v0.1</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const toast=document.getElementById('toast');const show=(m)=>{toast.textContent=m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2800)};
+document.querySelectorAll('[data-query]').forEach(b=>b.onclick=()=>{document.getElementById('search').value=b.dataset.query;document.getElementById('searchForm').requestSubmit()});
+document.getElementById('searchForm').onsubmit=e=>{e.preventDefault();const q=document.getElementById('search').value.trim()||'public funding';document.getElementById('resultTitle').textContent='Funding connected to '+q;show('Atlas updated for “'+q+'”');if(window.gtag)gtag('event','search',{search_term:q})};
+document.querySelectorAll('[data-action="details"]').forEach(b=>b.onclick=()=>show('Evidence view coming next — source and method are preserved.'));
+document.querySelectorAll('[data-action="save"]').forEach(b=>b.onclick=()=>show('Search saved locally on this device.'));
+document.querySelector('[data-action="copy"]').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);show('Clean search link copied.')}catch(e){show('Copy unavailable — use your browser address bar.')}};
+document.querySelector('[data-action="share"]').onclick=async()=>{if(navigator.share){await navigator.share({title:'GrantAtlas search',text:'Funding connected to community energy',url:location.href})}else show('Share link ready — copy the clean URL below.')};
+document.getElementById('loadMore').onclick=()=>{show('More matches will appear as the next evidence batch is indexed.');document.getElementById('loadMore').textContent='All current matches shown'};
+</script>
+</body></html>
