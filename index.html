@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#153b35">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="noindex,follow">
   <meta name="description" content="GrantAtlas is an evidence-led guide to public funding calls, awards and funders.">
   <meta property="og:title" content="GrantAtlas — Find funding with the evidence in view">
   <meta property="og:description" content="Search public funding calls and awards with source, date, coverage and confidence shown clearly.">
@@ -32,7 +32,7 @@
 <main id="top">
   <section class="hero">
     <div class="hero-copy"><p class="kicker">PUBLIC FUNDING INTELLIGENCE <span class="live-dot"></span> UPDATED WEEKLY</p><h1>Find the money.<br><em>See the proof.</em></h1><p class="lede">GrantAtlas brings funding calls, awards and funder activity into one clear, searchable view — with the source, date and confidence beside every answer.</p></div>
-    <form class="search-box" id="searchForm"><label for="search">What funding are you looking for?</label><div class="search-line"><span aria-hidden="true">⌕</span><input id="search" value="community energy" autocomplete="off"><button type="submit">Search Atlas <span>→</span></button></div><div class="suggestions"><button type="button" data-query="youth arts">youth arts</button><button type="button" data-query="local climate">local climate</button><button type="button" data-query="small business">small business</button></div></form>
+    <form class="search-box" id="searchForm"><label for="search">Check source coverage</label><div class="search-line"><span aria-hidden="true">⌕</span><input id="search" value="community energy" autocomplete="off"><button type="submit">Projection not yet searchable <span>→</span></button></div><div class="suggestions"><button type="button" data-query="youth arts">youth arts</button><button type="button" data-query="local climate">local climate</button><button type="button" data-query="small business">small business</button></div></form>
     <div class="hero-meta"><span><b>12,840</b> public records</span><span><b>384</b> active calls</span><span><b>97%</b> source-linked</span></div>
   </section>
   <section class="atlas-layout" id="explore"><aside class="filters"><div class="section-label">Refine the atlas</div><label for="topic">Topic</label><select id="topic"><option>All topics</option><option>Community & place</option><option>Environment</option><option>Arts & culture</option><option>Business & innovation</option></select><label for="geo">Geography</label><select id="geo"><option>All geographies</option><option>United Kingdom</option><option>Scotland</option><option>Wales</option><option>England</option></select><label for="status">Record type</label><select id="status"><option>Calls & awards</option><option>Open calls</option><option>Past awards</option><option>Funders</option></select><div class="filter-note"><span class="info">i</span> Filters change the results on this page. They do not create separate indexable pages.</div></aside>
@@ -51,10 +51,11 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 const toast=document.getElementById('toast');const show=(m)=>{toast.textContent=m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2800)};
+const savedKey='wherearethegrants.saved-searches';
 document.querySelectorAll('[data-query]').forEach(b=>b.onclick=()=>{document.getElementById('search').value=b.dataset.query;document.getElementById('searchForm').requestSubmit()});
 document.getElementById('searchForm').onsubmit=e=>{e.preventDefault();const q=document.getElementById('search').value.trim()||'public funding';document.getElementById('resultTitle').textContent='Funding connected to '+q;show('Atlas updated for “'+q+'”');if(window.gtag)gtag('event','search',{search_term:q})};
 document.querySelectorAll('[data-action="details"]').forEach(b=>b.onclick=()=>show('Evidence view coming next — source and method are preserved.'));
-document.querySelectorAll('[data-action="save"]').forEach(b=>b.onclick=()=>show('Search saved locally on this device.'));
+document.querySelectorAll('[data-action="save"]').forEach(b=>b.onclick=()=>{const saved=JSON.parse(localStorage.getItem(savedKey)||'[]');const q=document.getElementById('search').value.trim();if(q&&!saved.includes(q))saved.push(q);localStorage.setItem(savedKey,JSON.stringify(saved));b.textContent=`Saved searches (${saved.length})`;show('Search saved locally on this device.')});
 document.querySelector('[data-action="copy"]').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);show('Clean search link copied.')}catch(e){show('Copy unavailable — use your browser address bar.')}};
 document.querySelector('[data-action="share"]').onclick=async()=>{if(navigator.share){await navigator.share({title:'GrantAtlas search',text:'Funding connected to community energy',url:location.href})}else show('Share link ready — copy the clean URL below.')};
 document.getElementById('loadMore').onclick=()=>{show('More matches will appear as the next evidence batch is indexed.');document.getElementById('loadMore').textContent='All current matches shown'};
