@@ -60,3 +60,24 @@ test('free-text result permutations remain noindex', async () => {
   assert.equal(result.headers.get('x-robots-tag'), 'noindex');
   assert.match(await result.text(), /Results for “energy”/);
 });
+
+test('expired and archived records fail closed even if an R2 snapshot is stale', async () => {
+  const staleProjection = {
+    ...projection,
+    recordCount: 3,
+    records: [
+      ...projection.records,
+      { OpportunityID: 'expired', OpportunityTitle: 'Expired test grant', AgencyCode: 'DOE', CloseDate: '2020-01-01' },
+    ],
+  };
+  const staleEnv = { ...env, PUBLIC_DATA: { get: async () => ({ json: async () => staleProjection }) } };
+  const home = await worker.fetch(new Request('https://wherearethegrants.com/'), staleEnv);
+  const homeHtml = await home.text();
+  assert.match(homeHtml, /2 current Grants\.gov opportunities/);
+  assert.doesNotMatch(homeHtml, /Expired test grant/);
+  const expired = await worker.fetch(new Request('https://wherearethegrants.com/grant/expired'), staleEnv);
+  assert.equal(expired.status, 404);
+  assert.equal(expired.headers.get('x-robots-tag'), 'noindex');
+  const sitemap = await worker.fetch(new Request('https://wherearethegrants.com/sitemap.xml'), staleEnv);
+  assert.doesNotMatch(await sitemap.text(), /\/grant\/expired/);
+});
